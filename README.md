@@ -1,8 +1,8 @@
 Img2Pdf
 
 # PreRequisites
-%1.Add the directory containing this python file in .profile or bin in wsl
-%2.Modify the first line of code to point to your python interpreter
+1.Add the directory containing this python file in .profile or bin in wsl
+.. 2.Modify the first line of code to point to your python interpreter
 
 # Conditions
 1.The jpg files' file name must be in the order to be arranged in pdf 
