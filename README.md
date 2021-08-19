@@ -10,7 +10,7 @@ Img2Pdf
 1. The jpg files' file name must be in the order to be arranged in pdf 
     
     * eg. 1. jpg must be the first page 
-             2. jpg will be the second page in the pdf 
+             .. 2. jpg will be the second page in the pdf 
         Similarly the n.pdf will be the nth page of the pdf
 2. Subcategories are also allowed 
     
