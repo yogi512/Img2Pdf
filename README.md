@@ -1,4 +1,4 @@
-Img2Pdf
+# Img2Pdf
 
 # PreRequisites
 
@@ -26,5 +26,13 @@ Img2Pdf
 4. Or we can execute this in any location by specifying the directory path 
     
     * eg. img2pdf pdffile /mnt/c/files/jpg_directory  where jpg directory contains the jpg files to be converted to pdf
+
+5. Using the options :
+
+    * eg . imgs2pdf [-a or --arrange ] FILENAME DIRECTORY to  arrange image manually 
+    
+    * imgs2pdf [-t or --time ] FILENAME DIRECTORY to  arrange images based on time modified "
+
+    * imgs2pdf [-h or --help ] to get help"
 
 ## Thank You
