@@ -6,7 +6,7 @@ from PIL import Image
 
 argv = sys.argv[1:]
 
-VERBOSE =" imgs2pdf [-a or -- arrange ] FILENAME DIRECTORY to  arrange images manually \n imgs2pdf [-t or -- time ] FILENAME DIRECTORY to  arrange images based on time modified \n "
+VERBOSE =" imgs2pdf FILENAME DIRECTORY to  arrange based on filename \nimgs2pdf [-a or -- arrange ] FILENAME DIRECTORY to  arrange images manually \n imgs2pdf [-t or -- time ] FILENAME DIRECTORY to  arrange images based on time modified \n "
 ERROR ='try using imgs2pdf FILENAME DIRECTORY \nimgs2pdf -h  or imgs2pdf --help for more details'       
 
 try:
