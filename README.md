@@ -29,10 +29,10 @@
 
 5. Using the options :
 
-    * eg . imgs2pdf [-a or --arrange ] FILENAME DIRECTORY to  arrange image manually 
+    * img2pdf [-a or --arrange ] FILENAME DIRECTORY to  arrange image manually 
     
-    * imgs2pdf [-t or --time ] FILENAME DIRECTORY to  arrange images based on time modified "
+    * img2pdf [-t or --time ] FILENAME DIRECTORY to  arrange images based on  time modified 
 
-    * imgs2pdf [-h or --help ] to get help"
+    * img2pdf [-h or --help ] to get help
 
 ## Thank You
