@@ -22,12 +22,10 @@ if opts==[]:
         img_list=[]
         file_list=[]
         for file in os.listdir():
-            if file.endswith('.jpg' or '.png'):
-                file=file.split('.')[0]
+            if file.endswith('.jpg') or file.endswith('.jpeg') or file.endswith('.png'):
                 file_list.append(file)    
-        file_list.sort()
         for x in file_list:
-            img = Image.open(x+'.jpg')
+            img = Image.open(x)
             img_list.append(img)
         im1=img_list[0]
         im1.save(FILENAME+".pdf", "PDF" ,resolution=100.0, save_all=True, append_images=img_list[1:])
@@ -43,21 +41,29 @@ else:
             file_list=[]
 
             for file in os.listdir():
-                if file.endswith('.jpg'):
+                if file.endswith('.jpg') or file.endswith('.jpeg') or file.endswith('.png'):
                     print(file)
             print("Choose the files in order without extension")
             print("Leave blank and press enter to stop")
             while True:
                 file = input()
-                if file != '':
-                    file_list.append(str(file))
+                if file!='':
+                    if file+'.jpg' in os.listdir():
+                        file_list.append(file+'.jpg')
+                    elif file+'.jpeg' in os.listdir():
+                        file_list.append(file+'.jpeg')
+                    elif file+'.png' in os.listdir():
+                        file_list.append(file+'.png')
+                    else:
+                        print('FileNameMismatch')
                 else :
                     break
             file_list  
             for x in file_list:
-                img = Image.open(x+'.jpg')
+                img = Image.open(x)
                 img_list.append(img)
             im1=img_list[0]
+            
             im1.save(FILENAME+".pdf", "PDF" ,resolution=100.0, save_all=True, append_images=img_list[1:])
 
 
@@ -70,12 +76,11 @@ else:
             img_list=[]
             file_list=[]
             for file in os.listdir():
-                if file.endswith('.jpg' or '.png'):
+                if file.endswith('.jpg') or file.endswith('.jpeg') or file.endswith('.png'):
                     file_list.append(file)
             sorted(file_list, key=lambda t: os.stat(t).st_mtime)
-            file_list = list(map(lambda x:x.split('.')[0],file_list))
             for x in file_list:
-                img = Image.open(x+'.jpg')
+                img = Image.open(x)
                 img_list.append(img)
             im1=img_list[0]
             im1.save(FILENAME+".pdf", "PDF" ,resolution=100.0, save_all=True, append_images=img_list[1:])
