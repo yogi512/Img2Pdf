@@ -7,7 +7,7 @@ import sys
 
 # create the root window
 root = tk.Tk()
-root.geometry('300x300')
+root.geometry('500x500')
 # root.resizable(False, False)
 root.title('Image to Pdf')
 file_list=[]
@@ -16,9 +16,10 @@ img_list=[]
 # root.columnconfigure(0, weight=1)
 # root.rowconfigure(0, weight=1)
 FILENAME = sys.argv[1]
+DIRECTORY = sys.argv[2]
 
 
-
+os.chdir(DIRECTORY)
 
 for file in os.listdir():
     if file.endswith('.jpg') or file.endswith('.jpeg') or file.endswith('.png'):
@@ -45,6 +46,18 @@ listbox = tk.Listbox(
 # )
 
 listbox.pack(padx=5, pady=10)
+
+
+scrollbar = tk.Scrollbar(root, orient="vertical")
+scrollbar.config(command=listbox.yview)
+scrollbar.pack(side="right",fill='y')
+
+listbox.config(yscrollcommand=scrollbar.set)
+
+
+
+
+
 
 # handle event
 def items_selected(event):
@@ -76,20 +89,27 @@ def items_selected(event):
             pass
     img1=img_list[0]
     img1.save(FILENAME+".pdf", "PDF" ,resolution=100.0, save_all=True, append_images=img_list[1:])
-    
-    
+    for i in selected_indices:
+        label=tk.Label(root,text=listbox.get(i))
+        label.pack()
+
+        
     # print(new_list)
-    
+
+   
 
 listbox.bind('<<ListboxSelect>>', items_selected)
 
 
-
 # var=tk.StringVar(value=new_list)
 
-for val in new_list:
-    label = tk.Label(root,text=val)
-    label.pack()
+def pop():
+    if len(img_list)>0:
+        img_list.pop()
+
+button1 = tk.Button(root,text='POP',font='Montserrat',activebackground='#34d2eb',command=pop())
+# button1.pack(side='bottom',pady=60)
+button1.pack()
 
 button = tk.Button(root,text='GENERATE PDF',font='Montserrat-Bold',activebackground='#34d2eb',command=quit)
 button.pack(side='bottom',pady=10)
